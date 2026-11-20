@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stockfish Local Chess</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #101318;
+      color: #f1f3f5;
+      font-family: Arial, sans-serif;
+    }
+    .app {
+      max-width: 480px;
+      margin: auto;
+    }
+    h2 { text-align: center; }
+    .panel {
+      background: #202630;
+      padding: 16px;
+      border-radius: 14px;
+      margin: 14px 0;
+    }
+    button, select {
+      padding: 12px;
+      border: 0;
+      border-radius: 8px;
+      background: #354252;
+      color: white;
+      font-size: 15px;
+    }
+    button { cursor: pointer; }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .status { color: #a8c7fa; }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h2>♟ Stockfish Local Chess</h2>
+
+    <section class="panel">
+      <h3>Điều khiển AI</h3>
+      <p class="status" id="status">Sẵn sàng</p>
+
+      <label>Thời gian suy nghĩ</label>
+      <br><br>
+      <select id="thinkTime">
+        <option value="250">0,25 giây</option>
+        <option value="800">0,8 giây</option>
+        <option value="1500">1,5 giây</option>
+      </select>
+
+      <div class="actions">
+        <button id="newGame">Ván mới</button>
+        <button id="analyze">Phân tích</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Bàn cờ</h3>
+      <p>Phần bàn cờ và Stockfish sẽ được tích hợp ở bước tiếp theo.</p>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("newGame").onclick = () => {
+      document.getElementById("status").textContent =
+        "Đã tạo ván mới.";
+    };
+
+    document.getElementById("analyze").onclick = () => {
+      document.getElementById("status").textContent =
+        "Đang chờ tích hợp Stockfish.";
+    };
+  </script>
+</body>
+</html>
